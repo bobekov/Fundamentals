@@ -1,0 +1,9 @@
+string = input().split(", ")
+
+even_list = []
+
+for index, num in enumerate(string):
+    if int(num) % 2 == 0:
+        even_list.append(index)
+
+print(even_list)
