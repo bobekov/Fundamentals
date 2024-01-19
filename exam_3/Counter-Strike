@@ -1,0 +1,23 @@
+initial_energy = int(input())
+won_battle = 0
+energy_enough = False
+
+while True:
+    command = input()
+    if command == 'End of battle':
+        break
+    distance = int(command)
+
+    if initial_energy >= distance:
+        initial_energy -= distance
+        won_battle += 1
+        if won_battle % 3 == 0:
+            initial_energy += won_battle
+    else:
+        energy_enough = True
+        break
+
+if energy_enough:
+    print(f"Not enough energy! Game ends with {won_battle} won battles and {initial_energy} energy")
+else:
+    print(f"Won battles: {won_battle}. Energy left: {initial_energy}")
