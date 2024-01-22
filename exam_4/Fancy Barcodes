@@ -1,0 +1,25 @@
+import re
+
+n = int(input())
+
+for _ in range(n):
+    string = input()
+    pattern = r"@#+[A-Z][A-Za-z0-9]+[A-Z]@#+"
+    match = re.findall(pattern, string)
+
+    if match:
+        barcode = string[2:-2]
+        if len(barcode) >= 6:
+            sum_digit = []
+            for digit in string:
+                if digit.isdigit():
+                    sum_digit.append(digit)
+
+            if len(sum_digit):
+                print(f"Product group: {''.join(sum_digit)}")
+            else:
+                print("Product group: 00")
+        else:
+            print("Invalid barcode")
+    else:
+        print("Invalid barcode")
